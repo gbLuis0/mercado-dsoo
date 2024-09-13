@@ -5,6 +5,7 @@
 package com.mycompany.mercado.bd;
 
 import com.mycompany.mercado.modelos.Cliente;
+import com.mycompany.mercado.bd.ConexaoBanco;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,15 +28,14 @@ public class DadosCliente {
     
     public boolean adicionar(Cliente cliente){
         try {
-            String strSQL = "insert into Clientes (nome_cliente, telefone, email) "
+            String strSQL = "insert into clientes (nome_cliente, telefone, email) "
                     + " value (?, ?, ?);";
-            PreparedStatement preparedStatement =
-                    conexao.prepareStatement(strSQL);
-            preparedStatement.setString(1, cliente.getNome());
-            preparedStatement.setString(2, cliente.getTelefone());
-             preparedStatement.setString(3, cliente.getEmail());
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
+            try (PreparedStatement preparedStatement = conexao.prepareStatement(strSQL)) {
+                preparedStatement.setString(1, cliente.getNome());
+                preparedStatement.setString(2, cliente.getTelefone());
+                preparedStatement.setString(3, cliente.getEmail());
+                preparedStatement.executeUpdate();
+            }
             
             mensagem = "O Cliente foi inserido com sucesso.";
             return true;

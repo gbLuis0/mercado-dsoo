@@ -1,11 +1,14 @@
 package com.mycompany.mercado.janelas;
 
+import com.mycompany.mercado.controller.ControleClientes;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class JanelaCliente extends javax.swing.JInternalFrame {
+    private ControleClientes ctlClientes;
 
     public JanelaCliente() {
+        ctlClientes = new ControleClientes();
         initComponents();
     }
 
@@ -114,6 +117,10 @@ public class JanelaCliente extends javax.swing.JInternalFrame {
 
     private void btnAdicionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarClienteActionPerformed
 
+        boolean inseriu = ctlClientes.adicionarCliente(txtNome.getText(), txtTelefone.getText(), txtEmail.getText());
+        // parei aqui
+        JOptionPane.showMessageDialog(this, ctlClientes.getMensagem());   
+        
     }//GEN-LAST:event_btnAdicionarClienteActionPerformed
 
 

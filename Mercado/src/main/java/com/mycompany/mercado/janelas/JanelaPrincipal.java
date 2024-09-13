@@ -1,9 +1,25 @@
 package com.mycompany.mercado.janelas;
 
+import com.mycompany.mercado.controller.ControleConexaoBanco;
+import javax.swing.JOptionPane;
+
 public class JanelaPrincipal extends javax.swing.JFrame {
+    private ControleConexaoBanco controleConexaoBanco;
 
     public JanelaPrincipal() {
+        controleConexaoBanco = ControleConexaoBanco.getInstancia();
         initComponents();
+        if (controleConexaoBanco.conectarBanco()){
+            setTitle("Mercado - conectado ao banco de dados");
+        }else{
+            setTitle("Mercado - não conectado");
+            mostrarMensagemConexao();
+        }
+        
+    }
+    
+    private void mostrarMensagemConexao(){
+        JOptionPane.showMessageDialog(this, controleConexaoBanco.getMensagem());
     }
 
     @SuppressWarnings("unchecked")

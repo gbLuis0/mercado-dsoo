@@ -38,4 +38,10 @@ public class Cliente {
         this.email = email;
         this.cod = cod;
     }
+    
+    public Cliente(String nome, String telefone, String email) {
+        this.nome = nome;
+        this.telefone = telefone;
+        this.email = email;
+    }
 }

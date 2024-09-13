@@ -13,7 +13,7 @@ import java.sql.SQLException;
  * @author 202212030002
  */
 public class ConexaoBanco {
-      private String mensagem; 
+    private String mensagem; 
     private String usuario;
     private String senha;
     private String url;

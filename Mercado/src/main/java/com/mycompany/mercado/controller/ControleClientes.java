@@ -17,11 +17,11 @@ public class ControleClientes {
     private String mensagem;
     
     public ControleClientes(){
-        dadosCliente= new DadosCliente();
+        dadosCliente = new DadosCliente();
     }
     
-    public boolean adicionarCliente(String nome, String telefone, String email, int cod){
-        Cliente cliente = new Cliente(nome, telefone, email, cod);
+    public boolean adicionarCliente(String nome, String telefone, String email){
+        Cliente cliente = new Cliente(nome, telefone, email);
         boolean inseriu = dadosCliente.adicionar(cliente);
         mensagem = dadosCliente.getMensagem();
         return inseriu;
