@@ -29,13 +29,12 @@ public class DadosProduto {
         try {
             String strSQL = "insert into Produtos (preco, nome_produto, quantidade_estoque) "
                     + " value (?, ?, ?);";
-            PreparedStatement preparedStatement =
-                    conexao.prepareStatement(strSQL);
-            preparedStatement.setFloat(1, produto.getPreco());
-            preparedStatement.setString(2, produto.getNome());
-            preparedStatement.setInt(3, produto.getQuantidade());
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
+            try (PreparedStatement preparedStatement = conexao.prepareStatement(strSQL)) {
+                preparedStatement.setFloat(1, produto.getPreco());
+                preparedStatement.setString(2, produto.getNome());
+                preparedStatement.setInt(3, produto.getQuantidade());
+                preparedStatement.executeUpdate();
+            }
             
             mensagem = "O Produto foi inserido com sucesso.";
             return true;
@@ -98,13 +97,12 @@ public class DadosProduto {
             strSQL += "preco = ?, nome_produto = ? , quantidade_estoque = ?";
             strSQL += "where cod_produto = " + produto.getCod();
             strSQL += ";";
-            PreparedStatement preparedStatement
-                    = conexao.prepareStatement(strSQL);
-            preparedStatement.setFloat(1, produto.getPreco());
-            preparedStatement.setString(2, produto.getNome());
-            preparedStatement.setInt(3, produto.getQuantidade());
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
+            try (PreparedStatement preparedStatement = conexao.prepareStatement(strSQL)) {
+                preparedStatement.setFloat(1, produto.getPreco());
+                preparedStatement.setString(2, produto.getNome());
+                preparedStatement.setInt(3, produto.getQuantidade());
+                preparedStatement.executeUpdate();
+            }
             mensagem = "Alterações realizadas com sucesso.";
             return true;
         } catch (SQLException ex) {

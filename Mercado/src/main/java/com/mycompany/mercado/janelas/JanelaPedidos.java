@@ -1,16 +1,16 @@
-
 package com.mycompany.mercado.janelas;
 
-/**
- *
- * @author 202212030002
- */
+import com.mycompany.mercado.controller.ControlePedidos;
+import javax.swing.JOptionPane;
+
 public class JanelaPedidos extends javax.swing.JInternalFrame {
+    private ControlePedidos ctlPedidos;
 
     /**
      * Creates new form JanelaPedidos
      */
     public JanelaPedidos() {
+        ctlPedidos = new ControlePedidos();
         initComponents();
     }
 
@@ -123,7 +123,8 @@ public class JanelaPedidos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdicionarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarPedidoActionPerformed
-
+        ctlPedidos.adicionarPedido(Integer.parseInt(txtCodProduto.getText()), Integer.parseInt(txtCodCliente.getText()), Integer.parseInt(txtQtde.getText()), txtData.getText());
+        JOptionPane.showMessageDialog(this, ctlPedidos.getMensagem());
     }//GEN-LAST:event_btnAdicionarPedidoActionPerformed
 
 

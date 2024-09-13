@@ -4,16 +4,19 @@
  */
 package com.mycompany.mercado.janelas;
 
+import com.mycompany.mercado.controller.ControleProdutos;
+import javax.swing.JOptionPane;
 /**
  *
  * @author 202212030002
  */
 public class JanelaProdutos extends javax.swing.JInternalFrame {
-
+    private ControleProdutos ctlProdutos;
     /**
      * Creates new form JanelaProdutos
      */
     public JanelaProdutos() {
+        ctlProdutos = new ControleProdutos();
         initComponents();
     }
 
@@ -127,6 +130,11 @@ public class JanelaProdutos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarProdutoActionPerformed
+
+        ctlProdutos.adicionarProduto(Integer.parseInt(txtQuantidade.getText()), Float.parseFloat(txtPreco.getText()), txtNome.getText());
+        
+        JOptionPane.showMessageDialog(this, ctlProdutos.getMensagem());   
+        
 
     }//GEN-LAST:event_btnAdicionarProdutoActionPerformed
 

@@ -28,17 +28,16 @@ public class DadosPedido {
     
     public boolean inserir(Pedidos pedido){
         try {
-            String strSQL = "insert into curso "
+            String strSQL = "insert into pedidos "
                     + " (quantidade, data_pedido, cod_produto, cod_cliente) value "
                     + " (?, ?, ?, ?)";
-            PreparedStatement preparedStatement =
-                    conexao.prepareStatement(strSQL);
-            preparedStatement.setInt(1, pedido.getQuantidade());
-            preparedStatement.setString(2, pedido.getData());
-            preparedStatement.setInt(3, pedido.getCod_produto());
-            preparedStatement.setInt(4, pedido.getCod_cliente());
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
+            try (PreparedStatement preparedStatement = conexao.prepareStatement(strSQL)) {
+                preparedStatement.setInt(1, pedido.getQuantidade());
+                preparedStatement.setString(2, pedido.getData());
+                preparedStatement.setInt(3, pedido.getCod_produto());
+                preparedStatement.setInt(4, pedido.getCod_cliente());
+                preparedStatement.executeUpdate();
+            }
             mensagem = "Pedido feito com sucesso.";
             return true;
             
