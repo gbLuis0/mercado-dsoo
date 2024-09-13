@@ -30,14 +30,14 @@ public class ControlePedidos {
     public String getMensagem() {
         return mensagem;
     }
-    /*
+    
     public ArrayList<Pedidos> selecionarTodos(){
         ArrayList<Pedidos> pedidos;
         pedidos = dadosPedido.selecionarTodos();
         mensagem = dadosPedido.getMensagem();
         return pedidos;
     }
-    
+    /*
     public boolean excluir(int cod){
         boolean excluiu = dadosPedido.excluir(cod);
         mensagem = dadosPedido.getMensagem();
@@ -49,5 +49,6 @@ public class ControlePedidos {
         mensagem = dadosPedido.getMensagem();
         return editou;
     }
-*/ // falta add as funções no dados pedido
+*/
+ // falta add as funções no dados pedido
 }

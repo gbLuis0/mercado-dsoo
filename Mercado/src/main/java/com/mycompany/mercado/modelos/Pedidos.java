@@ -52,7 +52,6 @@ public class Pedidos {
         this.data = data;
     }
     public Pedidos(int cod_produto, int cod_cliente, int quantidade, String data) {
-        this.cod_pedido = cod_pedido;
         this.cod_produto = cod_produto;
         this.cod_cliente = cod_cliente;
         this.quantidade = quantidade;

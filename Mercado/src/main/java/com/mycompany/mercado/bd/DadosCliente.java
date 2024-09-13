@@ -48,7 +48,7 @@ public class DadosCliente {
     
     public boolean excluir(int cod){
         try {
-            String strSQL = "delete from departamento where "
+            String strSQL = "delete from clientes where "
                     + " cod_cliente = " + cod + ";";
             Statement statement = conexao.createStatement();
             statement.executeUpdate(strSQL);
@@ -73,11 +73,12 @@ public class DadosCliente {
                 int cod;
                 String nome, telefone, email;
                 
-                nome = resultSet.getString(1);
-                telefone = resultSet.getString(2);
-                email = resultSet.getString(3);
-                cod = resultSet.getInt(4);
-                Cliente listCliente = new Cliente(nome, telefone, email, cod);
+                cod = resultSet.getInt(1);
+                nome = resultSet.getString(2);
+                telefone = resultSet.getString(3);
+                email = resultSet.getString(4);
+                
+                Cliente listCliente = new Cliente(cod, nome, telefone, email);
                 
                 clientes.add(listCliente);
                
@@ -86,15 +87,15 @@ public class DadosCliente {
             mensagem = "Consulta realizada com sucesso.";
             return clientes;
         } catch (SQLException ex) {
-            mensagem = "Erro durante a realização da consulta.";
+            mensagem = "Erro durante a realização da consulta.\n" + ex.getMessage();
             return null;
         }
     }
     
     public boolean alterar(Cliente cliente){
         try {
-            String strSQL = "update cliente set ";
-            strSQL += "nome = ?, telefone = ? , email = ?";
+            String strSQL = "update clientes set ";
+            strSQL += "nome_cliente = ?, telefone = ? , email = ?";
             strSQL += "where cod_cliente = " + cliente.getCod();
             strSQL += ";";
             PreparedStatement preparedStatement

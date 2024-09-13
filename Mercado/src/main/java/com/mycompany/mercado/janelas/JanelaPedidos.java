@@ -1,7 +1,10 @@
 package com.mycompany.mercado.janelas;
 
 import com.mycompany.mercado.controller.ControlePedidos;
+import com.mycompany.mercado.modelos.Pedidos;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class JanelaPedidos extends javax.swing.JInternalFrame {
     private ControlePedidos ctlPedidos;
@@ -12,6 +15,28 @@ public class JanelaPedidos extends javax.swing.JInternalFrame {
     public JanelaPedidos() {
         ctlPedidos = new ControlePedidos();
         initComponents();
+        carregarTabelaPedidos();
+    }
+    
+    private void carregarTabelaPedidos(){
+        ControlePedidos controleClientes = new ControlePedidos();
+        ArrayList<Pedidos> pedidos = controleClientes.selecionarTodos();
+        DefaultTableModel modeloTabela = (DefaultTableModel) TabelaPedidos.getModel();
+        modeloTabela.setRowCount(0);
+        
+        if (pedidos != null && !pedidos.isEmpty()){
+            for (Pedidos pedidoAtual : pedidos){
+                modeloTabela.addRow(new Object[]{
+                    pedidoAtual.getCod_pedido(),
+                    pedidoAtual.getCod_produto(),
+                    pedidoAtual.getCod_cliente(),
+                    pedidoAtual.getQuantidade(),
+                    pedidoAtual.getData(),
+        });
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, controleClientes.getMensagem());
+        }
     }
 
     /**
@@ -35,6 +60,10 @@ public class JanelaPedidos extends javax.swing.JInternalFrame {
         txtQtde = new javax.swing.JTextField();
         lblCodCliente = new javax.swing.JLabel();
         txtCodCliente = new javax.swing.JTextField();
+
+        setClosable(true);
+        setMaximizable(true);
+        setResizable(true);
 
         TabelaPedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -125,6 +154,7 @@ public class JanelaPedidos extends javax.swing.JInternalFrame {
     private void btnAdicionarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarPedidoActionPerformed
         ctlPedidos.adicionarPedido(Integer.parseInt(txtCodProduto.getText()), Integer.parseInt(txtCodCliente.getText()), Integer.parseInt(txtQtde.getText()), txtData.getText());
         JOptionPane.showMessageDialog(this, ctlPedidos.getMensagem());
+        carregarTabelaPedidos();
     }//GEN-LAST:event_btnAdicionarPedidoActionPerformed
 
 

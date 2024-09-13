@@ -47,8 +47,8 @@ public class DadosProduto {
     
     public boolean excluir(int cod){
         try {
-            String strSQL = "delete from departamento where "
-                    + " cod_pedido = " + cod + ";";
+            String strSQL = "delete from produtos where "
+                    + " cod_produto = " + cod + ";";
             Statement statement = conexao.createStatement();
             statement.executeUpdate(strSQL);
             statement.close();
@@ -74,9 +74,9 @@ public class DadosProduto {
                 String nome;
                 
                 cod = resultSet.getInt(1);
-                quantidade= resultSet.getInt(2);
-                preco = resultSet.getFloat(3);
-                nome = resultSet.getString(4);
+                preco = resultSet.getFloat(2);
+                nome = resultSet.getString(3);
+                quantidade = resultSet.getInt(4);
                 Produto listProduto = new Produto(cod, quantidade, preco, nome);
                 
                 produtos.add(listProduto);
@@ -86,7 +86,7 @@ public class DadosProduto {
             mensagem = "Consulta realizada com sucesso.";
             return produtos;
         } catch (SQLException ex) {
-            mensagem = "Erro durante a realização da consulta.";
+            mensagem = "Erro durante a realização da consulta." + ex.getMessage();
             return null;
         }
     }
@@ -94,8 +94,8 @@ public class DadosProduto {
     public boolean alterar(Produto produto){
         try {
             String strSQL = "update Produtos set ";
-            strSQL += "preco = ?, nome_produto = ? , quantidade_estoque = ?";
-            strSQL += "where cod_produto = " + produto.getCod();
+            strSQL += "preco = ?, nome_produto = ?, quantidade_estoque = ?";
+            strSQL += " where cod_produto = " + produto.getCod();
             strSQL += ";";
             try (PreparedStatement preparedStatement = conexao.prepareStatement(strSQL)) {
                 preparedStatement.setFloat(1, produto.getPreco());

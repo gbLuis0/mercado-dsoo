@@ -29,13 +29,14 @@ public class ControleProdutos {
 
     public String getMensagem() {
         return mensagem;
+
     }
     
     public ArrayList<Produto> selecionarTodos(){
-        ArrayList<Produto> clientes;
-        clientes = dadosProduto.selecionarTodos();
+        ArrayList<Produto> produtos;
+        produtos = dadosProduto.selecionarTodos();
         mensagem = dadosProduto.getMensagem();
-        return clientes;
+        return produtos;
     }
     
     public boolean excluir(int cod){
@@ -44,8 +45,8 @@ public class ControleProdutos {
         return excluiu;
     }
     
-    public boolean editar(Produto cliente){
-        boolean editou = dadosProduto.alterar(cliente);
+    public boolean editar(Produto produto){
+        boolean editou = dadosProduto.alterar(produto);
         mensagem = dadosProduto.getMensagem();
         return editou;
     }
