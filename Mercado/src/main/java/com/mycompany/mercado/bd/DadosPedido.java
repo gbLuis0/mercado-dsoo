@@ -1,10 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.mercado.bd;
 
-import com.mycompany.mercado.modelos.Cliente;
 import com.mycompany.mercado.modelos.Pedidos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -30,13 +25,12 @@ public class DadosPedido {
     public boolean inserir(Pedidos pedido){
         try {
             String strSQL = "insert into pedidos "
-                    + " (quantidade, data_pedido, cod_produto, cod_cliente) value "
-                    + " (?, ?, ?, ?)";
+                    + " (quantidade, cod_produto, cod_cliente) value "
+                    + " (?, ?, ?)";
             try (PreparedStatement preparedStatement = conexao.prepareStatement(strSQL)) {
                 preparedStatement.setInt(1, pedido.getQuantidade());
-                preparedStatement.setString(2, pedido.getData());
-                preparedStatement.setInt(3, pedido.getCod_produto());
-                preparedStatement.setInt(4, pedido.getCod_cliente());
+                preparedStatement.setInt(2, pedido.getCod_produto());
+                preparedStatement.setInt(3, pedido.getCod_cliente());
                 preparedStatement.executeUpdate();
             }
             mensagem = "Pedido feito com sucesso.";
@@ -69,7 +63,6 @@ public class DadosPedido {
                 Pedidos listPedidos = new Pedidos(codPed, codProd, codCli, qtde, data);
                 
                 pedidos.add(listPedidos);
-               
             }
                     
             mensagem = "Consulta realizada com sucesso.";
@@ -79,22 +72,25 @@ public class DadosPedido {
             return null;
         }
     }
+    
+    public boolean excluir(int cod){
+        try {
+            String strSQL = "delete from pedidos where "
+                    + " cod_pedido = " + cod + ";";
+            Statement statement = conexao.createStatement();
+            statement.executeUpdate(strSQL);
+            statement.close();
+            
+            mensagem = "Pedido excluído com sucesso.";    
+            return true;
+        } catch (SQLException ex) {
+            mensagem = "Erro ao tentar excluir o Pedido"
+                    + ex.getMessage();
+            return false;
+        }
+    }
   
     public String getMensagem() {
         return mensagem;
     }
-    
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

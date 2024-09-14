@@ -51,11 +51,10 @@ public class Pedidos {
         this.quantidade = quantidade;
         this.data = data;
     }
-    public Pedidos(int cod_produto, int cod_cliente, int quantidade, String data) {
+    public Pedidos(int cod_produto, int cod_cliente, int quantidade) {
         this.cod_produto = cod_produto;
         this.cod_cliente = cod_cliente;
         this.quantidade = quantidade;
-        this.data = data;
     }
     
 }

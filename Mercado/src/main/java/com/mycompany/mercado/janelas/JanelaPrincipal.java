@@ -15,7 +15,6 @@ public class JanelaPrincipal extends javax.swing.JFrame {
             setTitle("Mercado - não conectado");
             mostrarMensagemConexao();
         }
-        
     }
     
     private void mostrarMensagemConexao(){

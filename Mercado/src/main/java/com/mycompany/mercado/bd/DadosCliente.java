@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.mercado.bd;
 
 import com.mycompany.mercado.modelos.Cliente;
@@ -81,7 +77,6 @@ public class DadosCliente {
                 Cliente listCliente = new Cliente(cod, nome, telefone, email);
                 
                 clientes.add(listCliente);
-               
             }
                     
             mensagem = "Consulta realizada com sucesso.";
@@ -114,9 +109,7 @@ public class DadosCliente {
         }
     }
     
-    
     public String getMensagem() {
         return mensagem;
     }
-    
 }

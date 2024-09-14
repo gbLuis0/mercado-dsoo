@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.mercado.controller;
 
 import com.mycompany.mercado.modelos.Pedidos;
@@ -20,8 +16,8 @@ public class ControlePedidos {
         dadosPedido = new DadosPedido();
     }
     
-    public boolean adicionarPedido(int codprod, int codcli, int qtde, String data){
-        Pedidos pedido = new Pedidos(codprod, codcli, qtde, data);
+    public boolean adicionarPedido(int codprod, int codcli, int qtde){
+        Pedidos pedido = new Pedidos(codprod, codcli, qtde);
         boolean inseriu = dadosPedido.inserir(pedido);
         mensagem = dadosPedido.getMensagem();
         return inseriu;
@@ -37,18 +33,11 @@ public class ControlePedidos {
         mensagem = dadosPedido.getMensagem();
         return pedidos;
     }
-    /*
+    
     public boolean excluir(int cod){
         boolean excluiu = dadosPedido.excluir(cod);
         mensagem = dadosPedido.getMensagem();
         return excluiu;
     }
     
-    public boolean editar(Pedidos pedido){
-        boolean editou = dadosPedido.alterar(pedido);
-        mensagem = dadosPedido.getMensagem();
-        return editou;
-    }
-*/
- // falta add as funções no dados pedido
 }

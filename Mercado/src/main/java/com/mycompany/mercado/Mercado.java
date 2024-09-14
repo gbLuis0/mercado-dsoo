@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.mycompany.mercado;
 
 /**
@@ -11,6 +7,6 @@ package com.mycompany.mercado;
 public class Mercado {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        System.out.println("Sistema de mercado\nDesenvolvedores: Aécio Gabriel, Calebe Figueiredo, Gabriel Luis e Vitor Hugo");
     }
 }

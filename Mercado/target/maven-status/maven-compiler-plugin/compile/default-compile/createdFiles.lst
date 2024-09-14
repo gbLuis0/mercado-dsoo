@@ -20,6 +20,7 @@ com\mycompany\mercado\bd\ConexaoBanco.class
 com\mycompany\mercado\janelas\JanelaProdutos$1.class
 com\mycompany\mercado\modelos\Pedidos.class
 com\mycompany\mercado\janelas\JanelaPrincipal.class
+com\mycompany\mercado\janelas\JanelaPedidos$2.class
 com\mycompany\mercado\janelas\JanelaPrincipal$3.class
 com\mycompany\mercado\janelas\JanelaPrincipal$1.class
 com\mycompany\mercado\janelas\JanelaCliente.class

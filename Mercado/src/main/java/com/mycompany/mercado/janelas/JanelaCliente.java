@@ -27,7 +27,6 @@ public class JanelaCliente extends javax.swing.JInternalFrame {
         String telefone = (String) modeloTabela.getValueAt(numeroLinhaSelecionada, 2);
         String email = (String) modeloTabela.getValueAt(numeroLinhaSelecionada, 3);
         return new Cliente(cod, nome,telefone,email);
-        
     }
     
     private void carregarTabelaClientes(){
@@ -218,10 +217,8 @@ public class JanelaCliente extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, ctlClientes.getMensagem());
             
             carregarTabelaClientes();
-            
         }
     }//GEN-LAST:event_btnEditarClienteActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TabelaClientes;

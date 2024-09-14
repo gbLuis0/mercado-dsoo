@@ -45,7 +45,6 @@ public class Produto {
     }
 
     public Produto(int quantidade, float preco, String nome) {
-        this.cod = cod;
         this.quantidade = quantidade;
         this.preco = preco;
         this.nome = nome;

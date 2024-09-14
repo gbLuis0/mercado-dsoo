@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.mercado.controller;
 
 import com.mycompany.mercado.modelos.Produto;
@@ -29,7 +25,6 @@ public class ControleProdutos {
 
     public String getMensagem() {
         return mensagem;
-
     }
     
     public ArrayList<Produto> selecionarTodos(){

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.mercado.bd;
 
 import com.mycompany.mercado.modelos.Produto;
@@ -12,13 +8,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-
 public class DadosProduto {
     private ArrayList<Produto> produtos;
     private String mensagem;
     private Connection conexao;
     
-
     public DadosProduto() {
         produtos = new ArrayList<>();
         mensagem = "";
@@ -80,7 +74,6 @@ public class DadosProduto {
                 Produto listProduto = new Produto(cod, quantidade, preco, nome);
                 
                 produtos.add(listProduto);
-               
             }
                     
             mensagem = "Consulta realizada com sucesso.";
@@ -112,9 +105,7 @@ public class DadosProduto {
         }
     }
     
-    
     public String getMensagem() {
         return mensagem;
     }
-    
 }

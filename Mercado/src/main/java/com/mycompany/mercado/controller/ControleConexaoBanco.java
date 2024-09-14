@@ -1,17 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.mercado.controller;
 
 import com.mycompany.mercado.bd.ConexaoBanco;
 
 public class ControleConexaoBanco {
-       private String mensagem;
+    private String mensagem;
     private ConexaoBanco conexaoBanco;
     private boolean conectado;
-
-    
     private static ControleConexaoBanco instancia = null;
     
     private ControleConexaoBanco(){
@@ -44,6 +38,4 @@ public class ControleConexaoBanco {
         }
         return instancia;
     }
-    
-    
 }
